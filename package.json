@@ -1,0 +1,21 @@
+{
+  "name": "botaoxy-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.15.0",
+    "chalk": "^5.2.0",
+    "commander": "^10.0.0",
+    "esno": "^0.16.3",
+    "inquirer": "^9.1.4",
+    "typescript": "^4.9.5"
+  }
+}
