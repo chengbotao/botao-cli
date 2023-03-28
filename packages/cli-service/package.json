@@ -1,0 +1,15 @@
+{
+  "name": "@botaoxy/cli-service",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "botaoxy-cli-service": "./bin/botaoxy-cli-service.ts"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "chengbotao",
+  "license": "MIT"
+}

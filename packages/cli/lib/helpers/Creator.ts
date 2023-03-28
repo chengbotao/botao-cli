@@ -8,8 +8,6 @@
 import { DistinctQuestion, Answers, ListQuestionOptions } from 'inquirer';
 import { SupplementPrompt } from './PromptModule';
 
-const isManualMode = (answers: Answers) => answers.preset === '__manual__';
-
 export default class Creator {
     injectedPrompts: Partial<DistinctQuestion & SupplementPrompt>[];
     featurePrompt: ListQuestionOptions;
