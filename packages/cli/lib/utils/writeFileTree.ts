@@ -6,6 +6,13 @@
 import fs from "fs-extra"
 import path from "path"
 
+/**
+ * @description: 写文件
+ * @param {string} dir
+ * @param {Record} files
+ * @param {*} string
+ * @return {*}
+ */
 export default async function writeFileTree(dir: string, files: Record<string, string | NodeJS.ArrayBufferView>) {
     Object.keys(files).forEach((name) => {
         const filePath = path.join(dir, name)

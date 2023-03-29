@@ -7,6 +7,11 @@ import fs from "fs-extra";
 import path from "path";
 import { readPackageSync } from "read-pkg"
 
+/**
+ * @description: 
+ * @param {string} dir
+ * @return {*}
+ */
 export default function resolvePkg(dir: string) {
     if (fs.existsSync(path.join(dir, 'package.json'))) {
         return readPackageSync({ cwd: dir })

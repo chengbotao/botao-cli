@@ -8,33 +8,12 @@
 
 import { program } from "commander";
 import chalk from "chalk";
-import leven from "leven";
 import create from "../lib/create";
 import pkg from "../package.json"
 import checkNodeVersion from "../lib/utils/checkNodeVersion";
+import suggestCommands from "../lib/utils/suggestCommands";
 
 const { version, engines, name } = pkg;
-
-/**
- * @description: 未知命令的推荐
- * @param {string} unknownCommand
- * @return {*}
- */
-function suggestCommands(unknownCommand: string) {
-    const availableCommands = program.commands.map(cmd => cmd.name())
-
-    let suggestion: any;
-    availableCommands.forEach(cmd => {
-        const isBestMatch = leven(cmd, unknownCommand) < leven(suggestion || '', unknownCommand)
-        if (leven(cmd, unknownCommand) < 3 && isBestMatch) {
-            suggestion = cmd
-        }
-    })
-
-    if (suggestion) {
-        console.log(`  ` + chalk.red(`Did you mean ${chalk.yellow(suggestion)}?`))
-    }
-}
 
 // 校验 node 版本
 checkNodeVersion(engines.node, name)
@@ -58,7 +37,7 @@ program.on('command:*', ([cmd]) => {
     console.log()
     console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}.`))
     console.log()
-    suggestCommands(cmd)
+    suggestCommands(program, cmd)
     process.exit(1)
 })
 
