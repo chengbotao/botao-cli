@@ -28,8 +28,7 @@ export default class Creator {
     resolveFinalPrompts() {
         this.injectedPrompts.forEach(prompt => {
             const originalWhen = prompt.when || (() => true)
-            // @ts-ignore
-            prompt.when = answers => originalWhen(answers)
+            prompt.when = typeof originalWhen === "function" ? answers => originalWhen(answers) : originalWhen;
         })
 
         const prompts = [
@@ -38,4 +37,12 @@ export default class Creator {
         ];
         return prompts;
     }
+    async resolvePlugins(pkg: any) {
+        const plugins = []
+    }
 }
+
+// TODO 预设模板
+// TODO 选择构建工具[npm yarn pnpm]
+// TODO 获取最新的 CLI 插件版本
+// TODO 校验官方插件
